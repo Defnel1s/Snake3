@@ -10,11 +10,12 @@ public class RoadGenerator : MonoBehaviour
     public float maxSpeed = 10;
     private float speed =0;
     public int maxRoadCount = 5;
+    public static RoadGenerator instance;
 
     private void Start()
     {
         ResetLevel();
-        StartLevel();
+       // StartLevel();
     }
     private void Update()
     {
@@ -43,6 +44,7 @@ public class RoadGenerator : MonoBehaviour
     public void StartLevel()
     {
         speed = maxSpeed;
+        SwipeManager.Instance.enabled = true;
     }
     public void ResetLevel()
     {
@@ -56,5 +58,7 @@ public class RoadGenerator : MonoBehaviour
         {
             CreateNextRoad();
         }
+        SwipeManager.Instance.enabled = false;
     }
+    void Awake() { instance = this; }
 }
