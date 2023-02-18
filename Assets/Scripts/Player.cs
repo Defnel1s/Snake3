@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     float laneChangeSpeed = 19;
      void Start()
     {
+        laneOffset = ObstaclesGenerator.instance.laneOffset;
         startGamePosition = transform.position;
         startGameRotation = transform.rotation;
         targetPos = transform.position;
